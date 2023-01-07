@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${pageTitle}">User</title>
+<!--    <style>-->
+<!--        .column{-->
+<!--            column-count: 2;-->
+<!--        }-->
+<!--    </style>-->
+</head>
+<body>
+<form method="get" action="/">
+    <input type="submit" value="Back to user list">
+</form>
+<h1>User found by given id: </h1>
+<h3><p th:text="${userById.toString()}">VALUE</p></h3>
+<div>
+    <form method="get" th:action="@{{id}/delete(id=${id})}">
+        <input type="submit" value="Delete this user">
+    </form>
+<!--    <p><h2>Delete this user</h2>-->
+<!--    <h3><a th:href="@{{id}/delete(id=${id})}">Link to delete this user</a></h3></p> <br>-->
+    <p><h2>Update something:</h2>
+    <form th:method="PATCH" th:action="@{{id}/update(id=${id})}" th:object="${userById}">
+        <label for="name">Enter new name: </label>
+        <input type="text" th:field="*{name}" id="name">
+        <br>
+<!--        <input type="submit" value="Update!">-->
+<!--    </form>-->
+<!--    <form th:method="PATCH" th:action="@{{id}/update(id=${id})}" th:object="${userById}">-->
+        <label for="surname">Enter new surname: </label>
+        <input type="text" th:field="*{surname}" id="surname">
+        <br>
+<!--        <input type="submit" value="Update!">-->
+<!--    </form>-->
+<!--    <form th:method="PATCH" th:action="@{{id}/update(id=${id})}" th:object="${userById}">-->
+        <label for="age">Enter new age: </label>
+        <input type="text" th:field="*{age}" id="age">
+        <br>
+<!--        <input type="submit" value="Update!">-->
+<!--    </form>-->
+<!--    <form th:method="PATCH" th:action="@{{id}/update(id=${id})}" th:object="${userById}">-->
+        <label for="login">Enter new login: </label>
+        <input type="text" id="login" th:field="*{login}">
+        <br>
+        <input type="submit" value="Update!">
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My first app!</title>
+</head>
+<div>
+    <h1> List of users: </h1>
+    <th:block th:each="usr : ${users}">
+       <a th:href="@{{id}(id=${usr.getId()})}"><h3 th:text="${usr}"></h3></a>
+    </th:block>
+</div>
+<div>
+    <p>
+        <form method="post" action="/create">
+            <label for="name">Name</label>
+            <input name="name" type="text" id="name"/>
+            <br>
+            <label for="surname">Surname</label>
+            <input name="surname" type="text" id="surname"/>
+            <br>
+            <label for="age">Age</label>
+            <input name="age" type="text" id="age"/>
+            <br>
+            <label for="login">Login</label>
+            <input name="login" type="text" id="login"/>
+            <br>
+            <input type="submit" value="Add user"/>
+        </form>
+    </p>
+</div>
+<div>
+    <p>
+        <form method="get" action="delete/all">
+            <input type="submit" value="Delete all users">
+        </form>
+    </p>
+</div>
+</html>
