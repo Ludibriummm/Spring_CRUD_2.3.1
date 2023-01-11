@@ -3,10 +3,8 @@ package web.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import web.dao.UserDao;
-import web.dao.UserDaoImpl;
 import web.model.User;
 
-import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Service
@@ -17,18 +15,15 @@ public class UserServiceImpl implements UserService{
         this.userDao = userDao;
     }
 
-    public void add(User user){
-        userDao.add(user);
+    public void addUser(User user){
+        userDao.addUser(user);
     }
-    public void add(String name, String surname, int age, String login){
-        userDao.add(name, surname, age, login);
+    public void addUser(String name, String surname, int age, String login){
+        userDao.addUser(name, surname, age, login);
     }
     public List<User> getAllUsers(){
         return userDao.getAllUsers();
     }
-//    public List<User> getUserList(int count) {
-//        return userDao.getUserList(count);
-//    }
 
     public User getUserById(int id) {
         return userDao.getUserById(id);
@@ -45,7 +40,7 @@ public class UserServiceImpl implements UserService{
         userDao.removeAllUsers();
     }
     @Override
-    public void update(int id, User user) {
-        userDao.update(id, user);
+    public void updateUser(int id, User user) {
+        userDao.updateUser(id, user);
     }
 }
